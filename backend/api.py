@@ -10,18 +10,20 @@ import io
 import os
 import gdown
 
-
 model_dir = "model"
 model_path = os.path.join(model_dir, "gender_model.h5")
 
-#As model.h5 file too big, so i have uploaded in the drive and downloading here.
+# Google Drive file download
 if not os.path.exists(model_path):
-    print("Downloading model...")
-    url = "https://drive.google.com/uc?id=1u3RU6nhU4KFfiKYS000ygIxXE8Hpos36" 
+    print("🔄 Downloading model from Google Drive...")
     os.makedirs(model_dir, exist_ok=True)
+    # This is the Google Drive shareable link ID (not the full URL)
+    file_id = "1u3RU6nhU4KFfiKYS000ygIxXE8Hpos36"
+    url = f"https://drive.google.com/uc?id={file_id}"
     gdown.download(url, model_path, quiet=False)
 
-# Loading the trained  model
+# Load the trained model
+print("✅ Loading model...")
 model = load_model(model_path)
 class_labels = ["female", "male"]
 
