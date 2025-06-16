@@ -18,7 +18,8 @@ if not os.path.exists(model_path):
     print("🔄 Downloading model from Google Drive...")
     os.makedirs(model_dir, exist_ok=True)
     # This is the Google Drive shareable link ID (not the full URL)
-    file_id = "1u3RU6nhU4KFfiKYS000ygIxXE8Hpos36"
+    file_id = "1TwCwEVjHkG3lkyif4mywdTmXJ10nFhe4"
+    
     url = f"https://drive.google.com/uc?id={file_id}"
     gdown.download(url, model_path, quiet=False)
 
